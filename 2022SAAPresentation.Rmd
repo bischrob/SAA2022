@@ -31,8 +31,6 @@ sessioninfo::session_info()
 set.seed(1010)
 ```
 
-# Introduction
-
 ## Social relations and arrow heads
 
 ::: {.columns}
@@ -346,7 +344,9 @@ knitr::include_graphics("ml.png")
 ::: {.column}
 
 ```{r}
-layer_comparison_ml(net, method = "jaccard.edges", mode = "all", layers = c("points","spatial","ceramics","architecture")) %>% knitr::kable()
+m = layer_comparison_ml(net, method = "jaccard.edges", mode = "all", layers = c("points","spatial","ceramics","architecture"))
+m = round(m,2)
+m %>% knitr::kable()
 ```
 
 :::
@@ -354,7 +354,10 @@ layer_comparison_ml(net, method = "jaccard.edges", mode = "all", layers = c("poi
 ::: {.column}
 
 ```{r}
-layer_comparison_ml(net, method = "rho.degree", mode = "all", layers = c("points","spatial","ceramics","architecture")) %>% knitr::kable()
+m = layer_comparison_ml(net, method = "rho.degree", mode = "all", layers = c("points","spatial","ceramics","architecture"))
+m = round(m,2)
+m %>% knitr::kable()
+
 ```
 
 
@@ -423,16 +426,16 @@ ggplot(long, aes(rank_architecture, value, color = name)) +
 ::: {.columns}
 ::: {.column}
 
-- Strong architectural correlation
-- Little spatial correlation
+- Some architectural correlation
+- Less spatial correlation
 - Points
     - Dense network [see @Buchanan2019-vn]
     - Rock Island was highly central
     - Roomblocks were peripheral
 - Ceramics 
-    - Roomblocks were highly central
+    - Roomblocks were central
 - Compounds tended to cluster together
-- Platform mounds were often more central
+- Platform mounds were usually central
     
 
 :::
